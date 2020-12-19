@@ -1,0 +1,17 @@
+trigger:
+  branches:
+    include:
+      - master
+      - refs/tags/*
+
+resources:
+  repositories:
+    - repository: templates
+      type: github
+      name: duchessa/azure-pipelines-templates
+      endpoint: duchessa
+
+extends:
+  template: sbt-pipeline.yml@templates
+  parameters:
+    publishStyle: 'none'
